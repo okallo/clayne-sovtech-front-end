@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is a people page</h1>
     <PeopleComponent />
   </div>
 </template>

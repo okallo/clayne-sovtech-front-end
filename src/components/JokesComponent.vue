@@ -6,7 +6,7 @@
       <div>current page : {{ pagination.page }}</div>
       <div>row per page : {{ pagination.rowsPerPage }}</div>
     </div>
-    <table :headers="headers" :items="persons"  class="table-hover table-striped">
+    <table class="table-hover table-striped">
     <thead>
       <tr>
         <th>Name
