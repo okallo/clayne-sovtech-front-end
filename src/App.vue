@@ -1,9 +1,15 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" pills style="height: 5em;">
+    <div class="container d-flex">
+    <router-link to="/" class="nav-item">Home</router-link> |
+    <router-link to="/people" class="nav-item">People</router-link> |
+    <router-link to="/search" class="nav-item">Search</router-link>
+    </div>
   </nav>
+  <div class="container">
   <router-view/>
+
+  </div>
 </template>
 
 <style>
@@ -11,7 +17,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
 }
 

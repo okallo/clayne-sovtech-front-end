@@ -10,12 +10,28 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.7",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
+    "bootstrap-vue-3": "^0.5.1",
     "core-js": "^3.8.3",
+    "datatables.net-bs5": "^1.13.4",
+    "datatables.net-select": "^1.6.2",
+    "datatables.net-vue3": "^2.1.0",
     "express": "^4.18.2",
+    "jquery": "^3.6.4",
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
+    "popper.js": "^1.16.1",
     "serve-static": "^1.15.0",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.3"
+    "vue-datatable": "^1.0.4",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^4.0.3",
+    "vue3-paginate": "^1.0.1",
+    "vuetify": "^3.2.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
