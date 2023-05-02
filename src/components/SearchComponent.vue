@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-12">
-      <label for="search">Search:</label>
+      <label for="search" style="margin: 2em;">Search:</label>
       <input
         type="text"
         id="search"
@@ -10,10 +10,10 @@
         @input="debouncedSearch"
       />
     </div>
+    <br />
     <div class="col-md-6">
-      <h2>Chuck Norris Results</h2>
       <div class="box b">
-        <h2>Jokes:</h2>
+        <h2>Chuck Norris Results</h2>
         <ul>
           <li
             v-for="(joke, index) in chuckResults"

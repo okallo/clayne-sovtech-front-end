@@ -11,7 +11,7 @@
         </th>
         <th>Gender
         </th>
-        <th>Birth_year
+        <th>Birth Year
         </th>
       </tr>
     </thead>
