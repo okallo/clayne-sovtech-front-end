@@ -92,8 +92,7 @@ export default {
 * {
 box-sizing: border-box;
 }
-.a {
-}
+
 .b {
 color:black;
 }
