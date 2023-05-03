@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://api.chucknorris.io/jokes/categories')
+      .get('https://clayne-sovtech-api.herokuapp.com/chuck/categories')
       .then((response) => {
         this.categories = response.data
       })
@@ -43,7 +43,7 @@ export default {
   methods: {
     getJokesByCategory (category) {
       axios
-        .get(`https://api.chucknorris.io/jokes/random?category=${category}`)
+        .get(`https://clayne-sovtech-api.herokuapp.com/chuck/category/joke?category=${category}`)
         .then((response) => {
           this.jokes.push(response.data)
         })
