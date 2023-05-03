@@ -82,7 +82,8 @@ export default {
     fetchPeople (v) {
       const start = (this.pagination.page - 1) * this.pagination.rowsPerPage
       const end = start + this.pagination.rowsPerPage
-      axios.get(`https://swapi.dev/api/people/?page=${v}`)
+      // https://clayne-sovtech-api.herokuapp.com
+      axios.get(`https://localhost:7061/swapi/people?pageNumber=${v}`)
         .then(response => {
           console.log('check people', response.data.results)
           this.persons = response.data.results.slice(start, end)

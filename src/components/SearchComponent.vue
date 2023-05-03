@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row joke-card">
+    <div class="col-md-12 card joke-card">
       <label for="search" style="margin: 2em;">Search:</label>
       <input
         type="text"
@@ -12,7 +12,7 @@
     </div>
     <br />
     <div class="col-md-6">
-      <div class="box b">
+      <div class="">
         <h2>Chuck Norris Results</h2>
         <ul>
           <li
@@ -20,7 +20,7 @@
             :key="index"
             style="list-style-type: disclosure-closed"
           >
-            <div class="card shadow joke-card">
+            <div class="card joke-card">
               {{ joke.value }}
             </div>
           </li>
@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-6">
 
-    <div class="card shadow joke-card">
+    <div class="">
       <h2>Star Wars Results</h2>
       <table class="table table-hover table-striped">
         <thead>
@@ -56,7 +56,7 @@
               {{ person.gender }}
             </td>
             <td>
-              {{ person.birth_year }}
+              {{ person.birth_Year }}
             </td>
           </tr>
         </tbody>
@@ -79,7 +79,7 @@ interface ChuckNorrisResult {
 interface StarWarsResult {
   name: string;
   // eslint-disable-next-line camelcase
-  birth_year: string;
+  birth_Year: string;
   height: string;
   mass: string;
   gender: string;
@@ -92,72 +92,32 @@ export default defineComponent({
     const searchQuery = ref('')
     const chuckResults = ref<ChuckNorrisResult[]>([])
     const starWarsResults = ref<StarWarsResult[]>([])
-    const chuckPage = ref(1)
-    const starWarsPage = ref(1)
-    const chuckPageCount = ref(1)
-    const starWarsPageCount = ref(1)
 
     const searchChuck = async () => {
       const response = await axios.get(
-        'https://api.chucknorris.io/jokes/search',
+        'https://clayne-sovtech-api.herokuapp.com/search/' + searchQuery.value,
         {
           params: {
-            query: searchQuery.value,
-            page: chuckPage.value
+            // query: searchQuery.value
+            // page: chuckPage.value
           }
         }
       )
-
-      chuckResults.value = response.data.result
-      chuckPageCount.value = Math.ceil(
-        response.data.total / response.data.limit
-      )
-    }
-
-    const searchStarWars = async () => {
-      const response = await axios.get('https://swapi.dev/api/people/', {
-        params: {
-          search: searchQuery.value,
-          page: starWarsPage.value
-        }
-      })
-
-      starWarsResults.value = response.data.results
-      starWarsPageCount.value = Math.ceil(
-        response.data.count / response.data.per_page
-      )
+      chuckResults.value = response.data.Jokes.result
+      starWarsResults.value = response.data.People.results
     }
 
     const debouncedSearch = debounce(() => {
       chuckResults.value = []
       starWarsResults.value = []
-      chuckPage.value = 1
-      starWarsPage.value = 1
       searchChuck()
-      searchStarWars()
     }, 500)
-
-    const handleChuckPageChanged = (newPage: number) => {
-      chuckPage.value = newPage
-      searchChuck()
-    }
-
-    const handleStarWarsPageChanged = (newPage: number) => {
-      starWarsPage.value = newPage
-      searchStarWars()
-    }
 
     return {
       searchQuery,
       chuckResults,
       starWarsResults,
-      chuckPage,
-      starWarsPage,
-      chuckPageCount,
-      starWarsPageCount,
-      debouncedSearch,
-      handleChuckPageChanged,
-      handleStarWarsPageChanged
+      debouncedSearch
     }
   }
 })

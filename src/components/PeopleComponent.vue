@@ -30,7 +30,7 @@
          {{ person.gender }}
         </td>
         <td>
-         {{ person.birth_year }}
+         {{ person.birth_Year }}
         </td>
       </tr>
     </tbody>
@@ -65,9 +65,9 @@ export default {
     })
 
     const fetchData = async () => {
-      const response = await axios.get('https://swapi.dev/api/people/', {
+      const response = await axios.get('https://clayne-sovtech-api.herokuapp.com/swapi/people/', {
         params: {
-          page: state.page
+          pageNumber: state.page
         }
       })
 
